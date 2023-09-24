@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "HomePage";
+}
+
+
+<style>
+    h1 {
+        text-align: center;
+    }
+    h2 {
+        text-align: center;
+    }
+    h3 {
+        text-align: center;
+    }
+    h4 {
+        text-align: center;
+    }
+    
+
+</style>
+
+<body>
+    <br />
+    <br />
+    <h1>Welcome to Loan Management System</h1>
+    <br />
+    <br />
+    <h2>Select Your Login Type from Navigation Bar</h2>
+    <br />
+    <br />
+    <h3>Click Below Link For Calculators</h3>
+
+    <h4>@Html.ActionLink("EMI Calculator", "EMICalculator", "Home",new { @class="btn btn-primary"})</h4>
+    <h4>@Html.ActionLink("Eligibility Calculator", "EligibleCalculator", "Home", new { @class = "btn btn-primary" })</h4>
+
+
+</body>
+
+

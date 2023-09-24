@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "EligibleCalculator";
+}
+
+<h2 style="text-align:center">Eligible Calculator</h2>
+<div class="ele container bg-primary" style="border: solid; width: fit-content; padding: 10Px; display: flex;position:center; border-radius: 7px;">
+    <table>
+        @using (Html.BeginForm("EligibleCalculator", "Home", FormMethod.Post))
+        {
+            <tr>
+                <td style="padding:2px;">@Html.Label("Enter monthly income")</td>
+                <td>@Html.TextBox("Income", "", new { @class = "form-control" })</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="padding:10px" align="center"><button class="btn btn-danger" type="submit" style="font-weight:bold;">Check Eligibility</button><br /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><label>You are eligible for : @TempData["Result"]</label></td>
+            </tr>
+        }
+    </table>
+</div>

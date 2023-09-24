@@ -1,0 +1,78 @@
+﻿@model IEnumerable<LoanMangSys.Models.tblLoan>
+
+@{
+    ViewBag.Title = "PendingLoans";
+}
+
+<h2>Pending Loans</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PropertyDetails)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ApplicationDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LoanAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LoanTenure)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EMI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LoanStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblUser.FirstName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PropertyDetails)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApplicationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoanAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoanTenure)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EMI)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoanStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tblUser.FirstName)
+            </td>
+            <td>
+                @if (Session["AdminName"] != null)
+                {
+                    @Html.ActionLink("Approve", "Approve", "tblLoans", new { id = item.ApplicationNo }, new { @class = "btn btn-success" })
+                    @Html.ActionLink("Reject", "Reject", "tblLoans", new { id = item.ApplicationNo }, new { @class = "btn btn-danger" })
+                }
+                
+
+            </td>
+        </tr>
+
+
+     }
+
+</table>
+
+@Html.ActionLink("Back to All Loans", "Index", "tblLoans", null, new { @class = "btn btn-primary" })
+
+</style>

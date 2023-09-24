@@ -1,0 +1,87 @@
+﻿@model LoanMangSys.Models.tblUser
+
+@{
+    ViewBag.Title = "UserLogin";
+}
+
+@using (Html.BeginForm("UserLogin", "Home", FormMethod.Post))
+{
+    <fieldset>
+        <legend>Hi! User Please Enter Your Details</legend>
+
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @if (@ViewBag.Message != null)
+        {
+            <div style="border: 3px solid red">
+                @ViewBag.Message
+            </div>
+        }
+        <table align="center" border="1">
+            <tr style="background-color:brown" font-size:larger">
+                <td colspan="2" style="color:white" align="center">
+                    User Login
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(a => a.UserName)</td>
+                <td>@Html.TextBoxFor(a => a.UserName)</td>
+                <td>@Html.ValidationMessageFor(a => a.UserName)</td>
+            </tr>
+
+            <tr>
+                <td>
+                    @Html.LabelFor(a => a.Password)
+                </td>
+                <td>
+                    @Html.PasswordFor(a => a.Password)
+                </td>
+
+                <td>
+                    @Html.ValidationMessageFor(a => a.Password)
+                </td>
+            </tr>
+            <tr>
+                <td>
+
+
+                <td>
+                </td>
+            </tr>
+            <tr>
+                @if (TempData["Errmessage1"] != null)
+                {
+                    <td colspan="2" align="center" style="color:red">
+                        @TempData["Errmessage1"]
+
+
+                    </td>
+                }
+            </tr>
+        </table>
+    </fieldset>
+    <br />
+    <p>
+        <input type="submit" value="Login" set="centre" />
+    </p>
+    <p>
+        @Html.ActionLink("New User? Click Here", "Create", "tblUsers", null, new { @class = "btn btn-primary" })
+    </p>
+}
+
+<style>
+    h1 {
+        text-align: center;
+    }
+    td{
+        text-align:center;
+    }
+
+    legend {
+        text-align: center;
+    }
+
+    p {
+        text-align: center
+    }
+</style>

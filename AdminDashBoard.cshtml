@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "AdminDashBoard";
+}
+
+<h2>Admin DashBoard</h2>
+
+@if (Session["AdminName"] != null)
+{
+    <text>
+        <h3>Welcome @Session["AdminName"]</h3>
+        <h4>Please Select Your Action @Session["AdminName"]</h4>
+
+    </text>
+    <h4>@Html.ActionLink("Manage Users", "Index", "tblUsers",null,new { @class="btn btn-primary"})</h4>;
+    <h4>@Html.ActionLink("Manage Loans", "Index", "tblLoans", null, new { @class = "btn btn-primary" })</h4>;
+
+}
+<style>
+    h2 {
+        text-align: center;
+    }
+
+    h3 {
+        text-align: center;
+    }
+
+    h4 {
+        text-align: center;
+    }
+</style>
+
+

@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "UserDashBoard";
+}
+
+
+<h2>User DashBoard</h2>
+
+    @if (Session["UserName"] != null)
+    {
+
+        <h3>
+            Welcome @Session["UserName"]
+            <br />
+        </h3>
+<p>
+    @Html.ActionLink("Click Here to Apply for a New Loan", "Create", "tblLoans", null, new { @class = "btn btn-success" })
+        <br />
+        <br />
+        @Html.ActionLink("Click Here to Check Your Loan Status & History", "Index", "tblLoans", new { id = Session["UserName"] }, new { @class = "btn btn-warning" })
+    </p>
+
+    }
+
+<style>
+    h2 {
+        color: red
+    }
+    h3 {
+        color: blue;
+        text-align: center;
+        font-family: 'Bungee Spice', cursive;
+    }
+   p {
+        text-align:center
+    }
+</style>
+
+
+

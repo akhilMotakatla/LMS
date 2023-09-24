@@ -1,0 +1,78 @@
+﻿@model LoanMangSys.Models.tblAdmin
+
+@{
+    ViewBag.Title = "AdminLogin";
+}
+
+
+
+@using (Html.BeginForm("AdminLogin", "Home", FormMethod.Post))
+{
+<fieldset>
+    <legend>Hi! Admin Please Enter your Details!!!</legend>
+
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @if (@ViewBag.Message != null)
+    {
+        <div style="border: 1px solid red">
+            @ViewBag.Message
+        </div>
+    }
+    <table align="center" border="1">
+        <tr style="background-color:brown" font-size:larger">
+            <td colspan="2" style="color:white" align="center">
+                Admin Login
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(a => a.AdminName)</td>
+            <td>@Html.TextBoxFor(a => a.AdminName)</td>
+            <td>@Html.ValidationMessageFor(a => a.AdminName)</td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(a => a.Password)
+            </td>
+            <td>
+                @Html.PasswordFor(a => a.Password)
+            </td>
+            <td>
+                @Html.ValidationMessageFor(a => a.Password)
+            </td>
+        </tr>
+        <tr>
+            
+
+            <td>
+            </td>
+            <td align="left"><input type="submit" value="Login" class="btn btn-primary" /></td>
+        </tr>
+        <tr>
+            @if (TempData["Errmessage1"] != null)
+            {
+                <td colspan="2" align="center" style="color:red">
+                    @TempData["Errmessage1"]
+                </td>
+            }
+        </tr>
+    </table>
+    
+</fieldset>
+} 
+<br /> 
+
+<style>
+    h1 {
+        text-align: center;
+    }
+    td{
+        text-align:center;
+    }
+    legend {
+        text-align: center;
+    }
+    p {
+        text-align:center
+    }
+</style>
